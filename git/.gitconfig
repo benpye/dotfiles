@@ -1,0 +1,6 @@
+[user]
+	name = Ben Pye
+	email = ben@curlybracket.co.uk
+	signingkey = FC89A6C30CCA2992
+[commit]
+	gpgsign = true
