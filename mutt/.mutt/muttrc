@@ -1,0 +1,26 @@
+# We expect imap_user and imap_pass to be set here
+source ./secrets
+
+set imap_keepalive	= 300
+unset imap_passive
+
+set from		= "Ben Pye<ben@curlybracket.co.uk>"
+set folder		= imaps://imap.fastmail.com/
+set smtp_url		= smtps://$imap_user:$imap_pass@smtp.fastmail.com
+
+set spoolfile		= +Inbox
+set postponed		= +Drafts
+set record		= +Sent
+
+set header_cache	= ~/.cache/mutt
+set mail_check		= 60
+set sort		= threads
+
+auto_view		text/html
+alternative_order	text/plain text/enriched text/html
+
+bind pager <up> previous-line
+bind pager <down> next-line
+
+macro index S ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index A ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"

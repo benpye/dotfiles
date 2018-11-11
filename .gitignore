@@ -1,0 +1,4 @@
+# We really shouldn't be committing these!
+
+ssh/.ssh/known_hosts
+mutt/.mutt/secrets
